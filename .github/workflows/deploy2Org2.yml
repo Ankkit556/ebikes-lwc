@@ -1,8 +1,6 @@
 name: Deployment to Sandbox
 on:
   push:
-    paths:
-      - force-app/**
     branches:
       - Dev1Team
 jobs:
@@ -35,4 +33,20 @@ jobs:
         run: sfdx auth:sfdxurl:store -f ./DEV2_URL.txt -s -a targetOrg
       - name: Deployment - run all tests
         run: >
-          sfdx force:source:deploy -p "force-app"  --testlevel RunLocalTests --json
+          sfdx force:source:deploy -p "force-app"
+
+      - name: Deploying the Project profle
+        run: >
+          sf project deploy start --metadata-dir=guest-profile-metadata -w 10
+      - name: Assign Permission Sets
+        run: >
+          sf org assign permset -n ebikes
+      - name: Import Sample Data
+        run: >
+          sf data tree import -p ./data/sample-data-plan.json
+      - name: Publish Comminity
+        run: >
+          sf community publish -n E-Bikes
+      
+        
+        
