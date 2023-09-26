@@ -1,6 +1,6 @@
 /*
 Author->
-Description ->
+Description -> added some text
 
 */
 public with sharing class OrderController {
@@ -24,4 +24,18 @@ public with sharing class OrderController {
     public static void testMethod1(){
         System.debug('This a additional Method');
     }
+
+    public static void testMethod2(){
+        System.debug('This a Second Method');
+    }
+
+    public static void testMethod3(){
+        System.debug('This a third Method');
+    }    
+    public static void testMethod4(){
+        System.debug('This a fourth Method');
+    } 
+    public static void testMethod5(){
+        System.debug('This a Fifth Method');
+    }   
 }
