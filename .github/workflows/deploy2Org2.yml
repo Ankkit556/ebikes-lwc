@@ -2,7 +2,7 @@ name: Deployment to UAT
 on:
   push:
     branches:
-      - Dev1Team
+      - UAT
 jobs:
   deployment-to-sandbox:
     runs-on: ubuntu-latest
