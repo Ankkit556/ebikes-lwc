@@ -1,4 +1,4 @@
-name: Deployment to Sandbox
+name: Deployment to UAT
 on:
   push:
     branches:
