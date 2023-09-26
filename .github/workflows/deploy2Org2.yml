@@ -59,6 +59,9 @@ jobs:
         run: >
           echo ${{env.APEX_TESTS}}
           sfdx force:source:push 
+      - name: Deploying the Project profle
+        run: >
+          sf project deploy start --metadata-dir=guest-profile-metadata -w 10
       - name: Assign Permission Sets
         run: >
           sf org assign permset -n ebikes
@@ -68,7 +71,6 @@ jobs:
       - name: Publish Comminity
         run: >
           sf community publish -n E-Bikes
-      - name: Deploying the Project profle
-        run: >
-          sf project deploy start --metadata-dir=guest-profile-metadata -w 10
+      
+        
         
