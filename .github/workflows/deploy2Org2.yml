@@ -53,12 +53,12 @@ jobs:
         run: >
           echo ${{env.APEX_TESTS}}
 
-          sfdx force:source:deploy -p "force-app" 
+          sfdx force:source:push
       - name: Deployment - run all tests
         if: ${{ env.APEX_TESTS == 'all' }}
         run: >
           echo ${{env.APEX_TESTS}}
-          sfdx force:source:deploy -p "force-app"  
+          sfdx force:source:push 
       - name: Assign Permission Sets
         run: >
           sf org assign permset -n ebikes
