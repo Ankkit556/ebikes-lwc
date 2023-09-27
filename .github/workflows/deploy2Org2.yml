@@ -33,11 +33,7 @@ jobs:
         run: sfdx auth:sfdxurl:store -f ./UAT_URL.txt -s -a targetOrg
       - name: Deployment
         run: >
-          sfdx force:source:deploy -p "force-app"
-
-      - name: Deploying the Project profle
-        run: >
-          sf project deploy start --metadata-dir=guest-profile-metadata -w 10
+          sfdx force:source:deploy -p "force-app" --testlevel RunLocalTests --json
       - name: Assign Permission Sets
         run: >
           sf org assign permset -n ebikes
